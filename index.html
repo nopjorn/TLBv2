@@ -3,410 +3,832 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ช่างลี เซอร์วิส | งานเชื่อม งานกลึง งานซ่อมเครื่องจักร</title>
+<title>พี่ลี เวลดิ้ง แอนด์ เซอร์วิส | งานเชื่อม งานกลึง งานซ่อมเครื่องจักร</title>
+<meta name="description" content="พี่ลี เวลดิ้ง แอนด์ เซอร์วิส รับงานเชื่อมโครงสร้างเหล็ก งานกลึงชิ้นส่วนโลหะ และซ่อมบำรุงเครื่องจักรโรงงาน ด้วยประสบการณ์กว่า 15 ปี">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --black:#15130F;
-    --charcoal:#211E1A;
-    --charcoal-2:#2A2620;
-    --steel:#4A453E;
-    --steel-light:#79705F;
-    --red:#D2231F;
-    --red-dark:#9E1A17;
-    --yellow:#FFC107;
-    --yellow-dark:#E0A800;
-    --cream:#F3EFE7;
-    --cream-dim:#C9C2B6;
-    --mono:'JetBrains Mono', monospace;
-    --display:'Kanit', sans-serif;
-    --body:'Noto Sans Thai','Kanit', sans-serif;
+    --ink:#14110d;
+    --ink-soft:#1c1812;
+    --panel:#221d16;
+    --panel-line:#3a3225;
+    --steel:#4a4334;
+    --gold:#e3a23c;
+    --gold-bright:#f6c76b;
+    --gold-dim:#8a6a32;
+    --ember:#c2272f;
+    --ember-deep:#7d161c;
+    --paper:#f3ece0;
+    --paper-dim:#cfc6b4;
+    --muted:#a89c87;
+    --radius:2px;
+    --maxw:1180px;
   }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
+  *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
   body{
-    background:var(--black);
-    color:var(--cream);
-    font-family:var(--body);
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Sarabun',sans-serif;
+    font-weight:400;
     line-height:1.7;
-    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
-  img,svg{display:block;}
+  h1,h2,h3,h4,.display{
+    font-family:'Kanit',sans-serif;
+    color:var(--paper);
+    margin:0;
+    letter-spacing:.01em;
+  }
   a{color:inherit;text-decoration:none;}
-  ul{list-style:none;}
-  section{position:relative;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
-
-  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.15;letter-spacing:.01em;}
+  img,svg{display:block;max-width:100%;}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
   .eyebrow{
-    font-family:var(--mono);
+    font-family:'Kanit',sans-serif;
     font-size:.78rem;
-    letter-spacing:.14em;
+    letter-spacing:.22em;
     text-transform:uppercase;
-    color:var(--yellow);
-    display:flex;
+    color:var(--gold);
+    font-weight:600;
+    display:inline-flex;
     align-items:center;
-    gap:.6em;
-    margin-bottom:1.1rem;
+    gap:10px;
   }
-  .eyebrow::before{content:"";width:22px;height:2px;background:var(--red);display:inline-block;}
-  .eyebrow.center{justify-content:center;}
-  .eyebrow.center::before{display:none;}
-
-  /* ---------- Hazard stripe element (signature) ---------- */
-  .hazard-bar{
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;
+    background:linear-gradient(90deg,var(--ember),var(--gold));
+    display:inline-block;
+  }
+  /* ---------- texture: diamond plate ---------- */
+  .plate-texture{
+    background-image:
+      radial-gradient(circle at 12px 12px, rgba(227,162,60,.10) 1.6px, transparent 1.8px);
+    background-size:24px 24px;
+  }
+  /* ---------- weld seam signature divider ---------- */
+  .weld-seam{
     height:10px;
-    background:repeating-linear-gradient(135deg,var(--yellow) 0 18px,var(--black) 18px 36px);
+    width:100%;
+    background:
+      repeating-radial-gradient(circle at 0 6px, rgba(20,17,13,.85) 0 2px, transparent 3px 11px),
+      linear-gradient(90deg, var(--ember-deep), var(--ember) 18%, var(--gold) 50%, var(--ember) 82%, var(--ember-deep));
+    background-size: 11px 11px, 100% 100%;
+    opacity:.9;
+    box-shadow:0 1px 0 rgba(0,0,0,.4), 0 -1px 0 rgba(255,255,255,.05);
   }
-  .hazard-bar.thin{height:5px;background:repeating-linear-gradient(135deg,var(--yellow) 0 12px,var(--black) 12px 24px);}
-  .hazard-divider{
-    height:16px;
-    background:repeating-linear-gradient(135deg,var(--yellow) 0 22px,var(--black) 22px 44px);
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(20,17,13,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--panel-line);
+    transition:padding .25s ease;
   }
-
-  /* ---------- Buttons ---------- */
+  .navwrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-badge{
+    width:42px;height:42px;border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%, var(--panel), var(--ink));
+    flex-shrink:0;
+  }
+  .brand-badge svg{width:22px;height:22px;color:var(--gold);}
+  .brand-name{font-family:'Kanit';font-weight:700;font-size:1.18rem;line-height:1.1;color:var(--paper);}
+  .brand-tag{font-size:.68rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;}
+  nav.links{display:flex;gap:34px;align-items:center;}
+  nav.links a{
+    font-family:'Kanit';font-size:.92rem;font-weight:500;color:var(--paper-dim);
+    position:relative;padding:6px 0;transition:color .2s;
+  }
+  nav.links a:hover{color:var(--gold-bright);}
+  nav.links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+    background:linear-gradient(90deg,var(--gold),var(--ember));
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:.95rem 1.8rem;
-    font-family:var(--display);font-weight:700;font-size:.98rem;
-    border-radius:3px;
-    border:2px solid transparent;
-    transition:transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Kanit';font-weight:600;font-size:.92rem;
+    padding:13px 26px;border-radius:var(--radius);
+    border:1.5px solid transparent;cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s;
     white-space:nowrap;
   }
-  .btn-primary{background:var(--red);color:var(--cream);}
-  .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);}
-  .btn-outline{border-color:var(--yellow);color:var(--yellow);}
-  .btn-outline:hover{background:var(--yellow);color:var(--black);transform:translateY(-2px);}
-
-  /* ---------- Header ---------- */
-  .site-header{position:sticky;top:0;z-index:50;background:rgba(21,19,15,.92);backdrop-filter:blur(6px);}
-  .header-inner{
-    max-width:1180px;margin:0 auto;padding:18px 28px;
-    display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  .btn-gold{
+    background:linear-gradient(135deg,var(--gold-bright),var(--gold) 60%,var(--gold-dim));
+    color:#1a1208;
+    box-shadow:0 4px 18px rgba(227,162,60,.25);
   }
-  .logo{font-family:var(--display);font-weight:900;font-size:1.35rem;letter-spacing:.01em;display:flex;align-items:baseline;gap:.15em;}
-  .logo .dot{color:var(--red);}
-  .logo .sub{font-family:var(--mono);font-weight:500;font-size:.6rem;color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;margin-left:.5em;}
-  .nav{display:flex;gap:2rem;font-size:.95rem;font-weight:500;}
-  .nav a{position:relative;padding:.3rem 0;color:var(--cream-dim);transition:color .2s ease;}
-  .nav a:hover{color:var(--yellow);}
-  .nav-cta{
-    font-family:var(--display);font-weight:700;font-size:.9rem;
-    background:var(--red);color:var(--cream);padding:.65rem 1.3rem;border-radius:3px;
-    transition:background .2s ease;
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(227,162,60,.38);}
+  .btn-ghost{
+    background:transparent;border-color:var(--steel);color:var(--paper);
   }
-  .nav-cta:hover{background:var(--red-dark);}
-  .nav-toggle{display:none;background:none;border:1px solid var(--steel);color:var(--cream);font-size:1.3rem;width:42px;height:42px;border-radius:3px;cursor:pointer;}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
+  .navcta{display:flex;align-items:center;gap:14px;}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+  .hamburger span{width:24px;height:2px;background:var(--paper);}
 
-  /* ---------- Hero ---------- */
+  /* ---------- hero ---------- */
   .hero{
-    padding:5.5rem 0 4.5rem;
+    position:relative;overflow:hidden;
     background:
-      radial-gradient(ellipse 60% 50% at 85% 10%, rgba(210,35,31,.20), transparent 60%),
-      radial-gradient(ellipse 50% 40% at 5% 90%, rgba(255,193,7,.10), transparent 55%),
-      var(--black);
-    overflow:hidden;
+      radial-gradient(ellipse 900px 500px at 78% 8%, rgba(227,162,60,.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 10% 100%, rgba(194,39,47,.14), transparent 55%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    padding:96px 0 70px;
   }
-  .hero-glow{
-    position:absolute;top:0;right:-10%;width:55%;height:100%;
-    background:radial-gradient(circle, rgba(255,193,7,.18) 0%, transparent 65%);
-    animation:pulse-glow 7s ease-in-out infinite alternate;
-    pointer-events:none;
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;
   }
-  @keyframes pulse-glow{from{opacity:.5;transform:scale(1);}to{opacity:1;transform:scale(1.12);}}
-  @media (prefers-reduced-motion:reduce){.hero-glow{animation:none;}}
-
-  .hero-inner{position:relative;max-width:1180px;margin:0 auto;padding:0 28px;}
   .hero h1{
-    font-size:clamp(2.6rem,6vw,4.4rem);
-    color:var(--cream);
-    margin-bottom:1.4rem;
-    max-width:14ch;
+    font-size:clamp(2.1rem,4.4vw,3.4rem);
+    font-weight:800;line-height:1.18;letter-spacing:-.01em;
   }
-  .hero h1 .accent{color:var(--yellow);}
-  .hero h1 .accent2{color:var(--red);}
-  .hero-sub{
-    font-size:1.08rem;color:var(--cream-dim);max-width:46ch;margin-bottom:2.2rem;
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.2rem;}
-
-  .hero-stats{display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid var(--steel);padding-top:1.8rem;}
-  .stat-num{font-family:var(--mono);font-weight:600;font-size:1.5rem;color:var(--yellow);}
-  .stat-label{font-size:.85rem;color:var(--cream-dim);}
-
-  /* ---------- Section headers ---------- */
-  .section-head{text-align:center;max-width:640px;margin:0 auto 3.2rem;}
-  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--cream);}
-
-  /* ---------- Services ---------- */
-  .services{padding:5rem 0;background:var(--charcoal);}
-  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;}
-  .plate-card{
-    position:relative;background:var(--charcoal-2);border:1px solid var(--steel);
-    border-radius:4px;padding:2.4rem 2rem 2.2rem;
-    transition:transform .25s ease, border-color .25s ease;
+  .hero-eyebrow{margin-bottom:18px;}
+  .hero-divider{width:120px;margin:24px 0;border-radius:6px;overflow:hidden;}
+  .hero p.lead{
+    font-size:1.08rem;color:var(--paper-dim);max-width:54ch;margin-bottom:34px;
   }
-  .plate-card:hover{transform:translateY(-6px);border-color:var(--yellow);}
-  .rivet{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--steel-light);
-    box-shadow:inset 0 1px 2px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.06);}
-  .rivet-tl{top:12px;left:12px;}
-  .rivet-tr{top:12px;right:12px;}
-  .rivet-bl{bottom:12px;left:12px;}
-  .rivet-br{bottom:12px;right:12px;}
-  .plate-icon{
-    width:54px;height:54px;border-radius:3px;background:var(--black);
-    display:flex;align-items:center;justify-content:center;color:var(--yellow);
-    margin-bottom:1.5rem;border:1px solid var(--steel);
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-art{
+    position:relative;display:flex;align-items:center;justify-content:center;
+    aspect-ratio:1/1;
   }
-  .plate-card:hover .plate-icon{color:var(--red);}
-  .plate-card h3{font-size:1.3rem;color:var(--cream);margin-bottom:.7rem;}
-  .plate-card p{color:var(--cream-dim);font-size:.96rem;}
-  .plate-tag{
-    font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--steel-light);
-    text-transform:uppercase;margin-bottom:.8rem;display:block;
+  .hero-art .ring{
+    position:absolute;inset:0;border-radius:50%;
+    border:1px solid var(--panel-line);
+  }
+  .hero-art .ring.r2{inset:34px;border-color:rgba(227,162,60,.25);}
+  .hero-art .glow{
+    position:absolute;width:78%;height:78%;border-radius:50%;
+    background:radial-gradient(circle, rgba(227,162,60,.22), transparent 70%);
+    filter:blur(6px);
+  }
+  .hero-art .badge{
+    position:relative;width:62%;aspect-ratio:1/1;border-radius:50%;
+    background:radial-gradient(circle at 35% 28%, var(--panel), var(--ink-soft) 70%);
+    border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 8px rgba(227,162,60,.06), 0 30px 60px rgba(0,0,0,.5);
+  }
+  .hero-art .badge svg{width:46%;height:46%;color:var(--gold-bright);}
+  .hero-art .orbit-dot{
+    position:absolute;width:9px;height:9px;border-radius:50%;
+    background:var(--ember);box-shadow:0 0 12px var(--ember);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .hero-art .badge{animation:floaty 6s ease-in-out infinite;}
+  }
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+  /* ---------- stats ---------- */
+  .stats{
+    background:var(--panel);
+    border-top:1px solid var(--panel-line);
+    border-bottom:1px solid var(--panel-line);
+    padding:40px 0;
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;
+  }
+  .stat .num{
+    font-family:'Kanit';font-weight:800;font-size:2.1rem;
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .stat .label{font-size:.86rem;color:var(--muted);margin-top:4px;letter-spacing:.02em;}
+
+  /* ---------- section shells ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:640px;margin:0 0 52px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;margin-top:14px;}
+  .section-head p{color:var(--paper-dim);margin-top:14px;font-size:1.02rem;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .service-card{
+    background:linear-gradient(180deg, var(--panel), var(--ink-soft));
+    border:1px solid var(--panel-line);
+    border-radius:var(--radius);
+    padding:38px 30px;
+    position:relative;overflow:hidden;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .service-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--ember),var(--gold));
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);border-color:var(--gold-dim);box-shadow:0 20px 40px rgba(0,0,0,.35);}
+  .service-card:hover::before{transform:scaleX(1);}
+  .service-num{
+    font-family:'Kanit';font-size:.78rem;color:var(--gold-dim);letter-spacing:.18em;font-weight:600;
+  }
+  .icon-circle{
+    width:58px;height:58px;border-radius:50%;
+    border:1px solid var(--panel-line);
+    background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    margin:18px 0 22px;
+  }
+  .icon-circle svg{width:28px;height:28px;color:var(--gold);}
+  .service-card h3{font-size:1.28rem;font-weight:600;margin-bottom:12px;}
+  .service-card p{color:var(--paper-dim);font-size:.96rem;}
+  .service-card ul{margin:16px 0 0;padding:0;list-style:none;}
+  .service-card li{
+    font-size:.9rem;color:var(--muted);padding-left:18px;position:relative;margin-bottom:8px;
+  }
+  .service-card li::before{
+    content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;background:var(--gold);
   }
 
-  /* ---------- About ---------- */
-  .about{padding:5.5rem 0;background:var(--black);}
-  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start;}
-  .about h2{font-size:clamp(1.8rem,3.2vw,2.3rem);color:var(--cream);margin-bottom:1.3rem;max-width:14ch;}
-  .about-text p.lead{color:var(--cream-dim);margin-bottom:1.8rem;}
-  .why-list li{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1rem;color:var(--cream-dim);font-size:.96rem;}
-  .why-list svg{flex:none;color:var(--yellow);margin-top:.2rem;}
-
-  .stat-plates{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-  .stat-plate{
-    position:relative;background:var(--charcoal);border:1px solid var(--steel);border-radius:4px;
-    padding:1.6rem 1.3rem;
+  /* ---------- why us ---------- */
+  .why-section{
+    background:var(--ink-soft);
+    border-top:1px solid var(--panel-line);
+    border-bottom:1px solid var(--panel-line);
   }
-  .stat-plate .num{font-family:var(--mono);font-weight:600;font-size:1.9rem;color:var(--red);}
-  .stat-plate .lbl{font-size:.84rem;color:var(--cream-dim);margin-top:.3rem;}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+  .why-item{text-align:left;}
+  .why-item .icon-circle{margin-bottom:18px;}
+  .why-item h4{font-size:1.06rem;font-weight:600;margin-bottom:8px;}
+  .why-item p{font-size:.92rem;color:var(--muted);}
 
-  /* ---------- Contact ---------- */
-  .contact{background:var(--charcoal);padding:5.5rem 0 4rem;}
-  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;}
-  .contact h2{font-size:clamp(1.8rem,3.2vw,2.3rem);color:var(--cream);margin-bottom:1rem;max-width:16ch;}
-  .contact-info > p{color:var(--cream-dim);margin-bottom:1.8rem;max-width:42ch;}
-  .contact-list li{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.1rem;}
-  .contact-list svg{flex:none;color:var(--yellow);margin-top:.15rem;}
-  .contact-list .ctitle{font-size:.78rem;color:var(--steel-light);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;}
-  .contact-list .cval{color:var(--cream);font-weight:500;}
-
-  .contact-card{
-    background:var(--black);border:1px solid var(--steel);border-radius:4px;padding:2.4rem;
-    position:relative;
+  /* ---------- portfolio ---------- */
+  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .work-card{
+    border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--panel-line);
+    background:var(--panel);
+    transition:transform .3s ease, box-shadow .3s ease;
   }
-  .contact-card h3{color:var(--cream);font-size:1.3rem;margin-bottom:.6rem;}
-  .contact-card p{color:var(--cream-dim);font-size:.92rem;margin-bottom:1.6rem;}
-  .contact-card .btn{width:100%;margin-bottom:.9rem;}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--black);}
-  .footer-inner{
-    max-width:1180px;margin:0 auto;padding:2.2rem 28px;
-    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  .work-card:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(0,0,0,.4);}
+  .work-visual{
+    aspect-ratio:4/3;position:relative;
+    display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(227,162,60,.18), transparent 55%),
+      linear-gradient(150deg, var(--ink-soft), var(--ink) 70%);
+    border-bottom:1px solid var(--panel-line);
   }
-  .footer-inner .logo{font-size:1.05rem;}
-  .footer-note{font-size:.82rem;color:var(--steel-light);font-family:var(--mono);}
-
-  /* ---------- Reveal animation ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in-view{opacity:1;transform:translateY(0);}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:860px){
-    .nav{position:fixed;top:74px;left:0;right:0;background:var(--charcoal);
-      flex-direction:column;padding:1.5rem 28px;gap:1.2rem;border-top:1px solid var(--steel);
-      transform:translateY(-150%);transition:transform .25s ease;}
-    .nav.open{transform:translateY(0);}
-    .nav-toggle{display:block;}
-    .nav-cta{display:none;}
-    .about-grid,.contact-grid{grid-template-columns:1fr;}
-    .cards-grid{grid-template-columns:1fr;}
-    .stat-plates{grid-template-columns:1fr 1fr;}
+  .work-visual svg{width:34%;height:34%;color:var(--gold);opacity:.92;}
+  .work-tag{
+    position:absolute;top:14px;left:14px;
+    font-family:'Kanit';font-size:.68rem;letter-spacing:.1em;
+    background:rgba(20,17,13,.75);border:1px solid var(--panel-line);
+    color:var(--gold-bright);padding:5px 11px;border-radius:20px;
   }
+  .work-body{padding:22px 24px 26px;}
+  .work-body h4{font-size:1.06rem;font-weight:600;margin-bottom:8px;}
+  .work-body p{font-size:.88rem;color:var(--muted);}
+
+  /* ---------- quote / trust strip ---------- */
+  .quote-strip{
+    text-align:center;padding:70px 0;
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+  }
+  .quote-strip blockquote{
+    font-family:'Kanit';font-weight:500;font-size:clamp(1.2rem,2.4vw,1.7rem);
+    max-width:760px;margin:0 auto 18px;line-height:1.5;color:var(--paper);
+  }
+  .quote-strip .who{color:var(--gold);font-size:.92rem;letter-spacing:.04em;}
+
+  /* ---------- contact ---------- */
+  .contact-section{
+    background:var(--panel);border-top:1px solid var(--panel-line);
+  }
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .contact-info .item{display:flex;gap:16px;margin-bottom:26px;align-items:flex-start;}
+  .contact-info .icon-circle{flex-shrink:0;margin:0;width:48px;height:48px;}
+  .contact-info .icon-circle svg{width:22px;height:22px;}
+  .contact-info h4{font-size:1rem;font-weight:600;margin-bottom:4px;}
+  .contact-info p,.contact-info a{font-size:.92rem;color:var(--paper-dim);}
+  .contact-info a:hover{color:var(--gold-bright);}
+  .hours-table{margin-top:30px;border-top:1px solid var(--panel-line);padding-top:22px;}
+  .hours-row{display:flex;justify-content:space-between;font-size:.88rem;color:var(--paper-dim);padding:6px 0;}
+  .hours-row span:first-child{color:var(--muted);}
+
+  .form-card{
+    background:var(--ink-soft);border:1px solid var(--panel-line);
+    border-radius:var(--radius);padding:36px;
+  }
+  .form-card h3{font-size:1.2rem;margin-bottom:6px;}
+  .form-card .sub{font-size:.88rem;color:var(--muted);margin-bottom:26px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:.82rem;color:var(--paper-dim);margin-bottom:7px;font-family:'Kanit';letter-spacing:.02em;}
+  .field input,.field textarea{
+    width:100%;background:var(--ink);border:1px solid var(--panel-line);
+    border-radius:var(--radius);padding:12px 14px;color:var(--paper);
+    font-family:'Sarabun';font-size:.94rem;resize:vertical;
+    transition:border-color .2s;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+  .form-card .btn{width:100%;justify-content:center;margin-top:6px;}
+  .form-note{font-size:.78rem;color:var(--muted);margin-top:14px;text-align:center;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);padding:54px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .footer-brand p{color:var(--muted);font-size:.9rem;margin-top:14px;max-width:32ch;}
+  footer h5{font-family:'Kanit';font-size:.9rem;letter-spacing:.06em;color:var(--paper);margin-bottom:16px;}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:10px;}
+  footer a{font-size:.9rem;color:var(--muted);transition:color .2s;}
+  footer a:hover{color:var(--gold-bright);}
+  .footer-bottom{
+    border-top:1px solid var(--panel-line);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:.8rem;color:var(--muted);
+  }
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    nav.links{display:none;}
+    .hamburger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{max-width:300px;margin:0 auto;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:28px;}
+    .services-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .why-grid{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .hero-ctas{flex-direction:column;align-items:stretch;}
+    section{padding:64px 0;}
+  }
+
+  /* mobile menu */
+  .mobile-menu{
+    display:none;position:fixed;inset:0;z-index:200;
+    background:rgba(15,12,8,.97);
+    flex-direction:column;align-items:center;justify-content:center;gap:30px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:'Kanit';font-size:1.4rem;font-weight:600;color:var(--paper);}
+  .mobile-menu .close-btn{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--paper);font-size:1.8rem;cursor:pointer;}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#home" class="logo">ช่างลี<span class="dot">.</span><span class="sub">Service</span></a>
-    <nav class="nav" id="nav">
-      <a href="#home">หน้าแรก</a>
+<!-- ============ NAV ============ -->
+<header>
+  <div class="navwrap">
+    <a href="#top" class="brand">
+      <span class="brand-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5-5"/><path d="M13 7l4-4 3 3-4 4"/><path d="M7 13l4 4"/><path d="M9.5 9.5l5 5"/><circle cx="18" cy="6" r="1.4" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <span>
+        <span class="brand-name" style="display:block;">พี่ลี เวลดิ้ง</span>
+        <span class="brand-tag">Welding &amp; Service</span>
+      </span>
+    </a>
+    <nav class="links">
       <a href="#services">บริการ</a>
-      <a href="#about">เกี่ยวกับเรา</a>
-      <a href="#contact">ติดต่อ</a>
+      <a href="#portfolio">ผลงานที่ผ่านมา</a>
+      <a href="#why">ทำไมต้องเลือกเรา</a>
+      <a href="#contact">ติดต่อเรา</a>
     </nav>
-    <a href="tel:0812345678" class="nav-cta">โทรเลย</a>
-    <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู">☰</button>
+    <div class="navcta">
+      <a href="#contact" class="btn btn-gold">ขอใบเสนอราคา</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="เปิดเมนู">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
-  <div class="hazard-bar thin"></div>
 </header>
 
-<section class="hero" id="home">
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <p class="eyebrow">ช่างลี เซอร์วิส · งานช่างอุตสาหกรรม</p>
-    <h1>ซ่อมได้ เชื่อมได้<br>กลึงได้ <span class="accent">จบที่เดียว</span></h1>
-    <p class="hero-sub">รับงานเชื่อมเหล็ก งานกลึงชิ้นส่วน และซ่อมเครื่องจักรโรงงาน โดยทีมช่างมีประสบการณ์ตรงกว่า 15 ปี งานเสร็จตรงเวลา แจ้งราคาก่อนเริ่มงานทุกครั้ง</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">ติดต่อสอบถามงาน</a>
-      <a href="#services" class="btn btn-outline">ดูบริการทั้งหมด</a>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenuBtn" aria-label="ปิดเมนู">&times;</button>
+  <a href="#services">บริการ</a>
+  <a href="#portfolio">ผลงานที่ผ่านมา</a>
+  <a href="#why">ทำไมต้องเลือกเรา</a>
+  <a href="#contact">ติดต่อเรา</a>
+</div>
+
+<div id="top"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow hero-eyebrow">ช่างเชื่อม-กลึง-ซ่อมเครื่องจักร ตัวจริง</div>
+      <h1>งานเชื่อม งานกลึง<br>และงานซ่อมเครื่องจักร<br><em>ที่ไว้วางใจได้</em></h1>
+      <div class="hero-divider weld-seam"></div>
+      <p class="lead">พี่ลี เวลดิ้ง แอนด์ เซอร์วิส รับงานเชื่อมโครงสร้างเหล็ก งานกลึงชิ้นส่วนโลหะตามแบบ และซ่อมบำรุงเครื่องจักรโรงงาน ด้วยประสบการณ์กว่า 15 ปี ฝีมือช่างมาตรฐาน ราคายุติธรรม ตรงเวลาทุกงาน</p>
+      <div class="hero-ctas">
+        <a href="tel:0812345678" class="btn btn-gold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          โทรเลย 081-234-5678
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">ดูผลงานของเรา</a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div><div class="stat-num">15+</div><div class="stat-label">ปีประสบการณ์</div></div>
-      <div><div class="stat-num">1,200+</div><div class="stat-label">งานที่เสร็จแล้ว</div></div>
-      <div><div class="stat-num">24 ชม.</div><div class="stat-label">รับงานด่วน</div></div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <div class="glow"></div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21l5.5-5.5"/>
+          <path d="M14 10l5-5 3 3-5 5"/>
+          <path d="M6 18l4 4"/>
+          <path d="M9.2 14.8l5-5"/>
+          <circle cx="19" cy="5" r="1.2" fill="currentColor" stroke="none"/>
+          <path d="M17.5 14.5a3.2 3.2 0 1 1-7.1 1.6" stroke-opacity=".55"/>
+        </svg>
+      </div>
+      <span class="orbit-dot" style="top:8%;left:50%;"></span>
+      <span class="orbit-dot" style="bottom:14%;left:18%;"></span>
+      <span class="orbit-dot" style="bottom:20%;right:12%;"></span>
     </div>
   </div>
 </section>
 
-<div class="hazard-divider"></div>
+<!-- ============ STATS ============ -->
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><div class="num">15+</div><div class="label">ปีประสบการณ์</div></div>
+    <div class="stat"><div class="num">500+</div><div class="label">งานที่สำเร็จ</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">ลูกค้าพึงพอใจ</div></div>
+    <div class="stat"><div class="num">24 ชม.</div><div class="label">บริการฉุกเฉิน</div></div>
+  </div>
+</div>
 
-<section class="services" id="services">
-  <div class="wrap">
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow center">บริการของเรา</p>
-      <h2>งานช่างที่เราถนัด</h2>
+      <div class="eyebrow">บริการของเรา</div>
+      <h2>งานช่างครบวงจร ดูแลตั้งแต่ต้นจนจบงาน</h2>
+      <p>ทุกงานผ่านการตรวจสอบคุณภาพโดยช่างผู้มีประสบการณ์ พร้อมให้คำปรึกษาหน้างานฟรี ก่อนเริ่มงานทุกครั้ง</p>
     </div>
-    <div class="cards-grid">
 
-      <div class="plate-card reveal">
-        <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
-        <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
-        <div class="plate-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 3l4 4-9 9-5 1 1-5 9-9z"/><path d="M17 6l1 1"/><path d="M3 21l3-1"/>
-          </svg>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-num">01 — งานเชื่อม</div>
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l6-6"/><path d="M12 9l5-5 4 4-5 5"/><path d="M9 12l3 3"/><circle cx="19" cy="5" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r=".7" fill="currentColor" stroke="none"/></svg>
         </div>
-        <span class="plate-tag">Welding</span>
-        <h3>งานเชื่อม</h3>
-        <p>เชื่อมเหล็ก เชื่อมสแตนเลส และเชื่อมโครงสร้าง ทั้งงานในโรงงานและออกหน้างาน ด้วยช่างเชื่อมที่ผ่านการทำงานจริงมาแล้วหลากหลายประเภทงาน</p>
+        <h3>งานเชื่อมโครงสร้างเหล็ก</h3>
+        <p>รับเชื่อมงานเหล็กทุกประเภท ด้วยเทคนิคอาร์กอน (TIG) และเชื่อมไฟฟ้า (MMA) ฝีมือเรียบเนียน แข็งแรง ทนทาน</p>
+        <ul>
+          <li>โครงหลังคา-โครงสร้างโรงงาน</li>
+          <li>ประตูรั้ว เหล็กดัด นั่งร้าน</li>
+          <li>ถังเหล็ก-แทงค์งานอุตสาหกรรม</li>
+        </ul>
       </div>
 
-      <div class="plate-card reveal">
-        <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
-        <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
-        <div class="plate-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19.07 4.93l-2.12 2.12M7.05 16.95l-2.12 2.12M19.07 19.07l-2.12-2.12M7.05 7.05L4.93 4.93"/>
-          </svg>
+      <div class="service-card reveal">
+        <div class="service-num">02 — งานกลึง</div>
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6"/></svg>
         </div>
-        <span class="plate-tag">Turning</span>
-        <h3>งานกลึง</h3>
-        <p>กลึงชิ้นส่วนเครื่องจักร แกนเพลา บูช และอะไหล่เฉพาะทาง ตามแบบหรือของตัวอย่าง เน้นความละเอียดและขนาดที่ตรงตามสเปก</p>
+        <h3>งานกลึงชิ้นส่วนโลหะ</h3>
+        <p>กลึงขึ้นรูปชิ้นงานโลหะตามแบบ ความละเอียดสูง แม่นยำทุกมิติ รองรับงานเดี่ยวและงานล็อตจำนวนมาก</p>
+        <ul>
+          <li>เพลา บูช ปลอกโลหะ</li>
+          <li>เฟือง-ชิ้นส่วนเครื่องจักร</li>
+          <li>งานกลึงตามแบบ/สเปกลูกค้า</li>
+        </ul>
       </div>
 
-      <div class="plate-card reveal">
-        <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
-        <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
-        <div class="plate-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-          </svg>
+      <div class="service-card reveal">
+        <div class="service-num">03 — ซ่อมเครื่องจักร</div>
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a4 4 0 0 1-5.4 5.4L4 18.4 5.6 20l8.3-8.3a4 4 0 0 1 5.4-5.4l-1.6 1.6a1 1 0 0 0 0 1.4l1.3 1.3a1 1 0 0 0 1.4 0L22 9a4 4 0 0 1-5.66 5.66"/></svg>
         </div>
-        <span class="plate-tag">Repair</span>
-        <h3>งานซ่อมเครื่องจักร</h3>
-        <p>ตรวจเช็ค ซ่อม และบำรุงรักษาเชิงป้องกันสำหรับเครื่องจักรโรงงาน ระบบส่งกำลัง และระบบไฮดรอลิก ลดเวลาเครื่องจักรหยุดทำงาน</p>
+        <h3>ซ่อมบำรุงเครื่องจักร</h3>
+        <p>ตรวจวิเคราะห์อาการ ซ่อมและบำรุงรักษาเครื่องจักรโรงงาน เครื่องยนต์อุตสาหกรรม พร้อมออกหน้างานด่วน</p>
+        <ul>
+          <li>ซ่อมเครื่องจักรสายการผลิต</li>
+          <li>บำรุงรักษาเชิงป้องกัน (PM)</li>
+          <li>บริการฉุกเฉินนอกสถานที่</li>
+        </ul>
       </div>
 
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div class="about-text reveal">
-      <p class="eyebrow">เกี่ยวกับเรา</p>
-      <h2>ทีมช่างที่โรงงานในพื้นที่ไว้ใจ</h2>
-      <p class="lead">ช่างลี เซอร์วิส เริ่มต้นจากอู่เชื่อมเล็กๆ จนกลายเป็นทีมช่างที่รับงานเชื่อม งานกลึง และงานซ่อมเครื่องจักรให้กับโรงงานและร้านค้าในพื้นที่มากว่า 15 ปี เราเข้าใจดีว่าเครื่องจักรหยุดทำงานหนึ่งวันคือต้นทุนที่เสียไป จึงให้ความสำคัญกับความเร็วและความแม่นยำในทุกงานที่รับ</p>
-      <ul class="why-list">
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ช่างมีประสบการณ์ตรง ลงมือทำเองทุกขั้นตอน</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>แจ้งราคาก่อนเริ่มงานทุกครั้ง ไม่มีบวกเพิ่มทีหลัง</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ใช้วัสดุและอะไหล่ได้มาตรฐาน รับประกันงาน</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>รับงานด่วน ออกหน้างานได้ไว ทั้งในและนอกพื้นที่</li>
-      </ul>
+<div class="weld-seam"></div>
+
+<!-- ============ WHY US ============ -->
+<section id="why" class="why-section">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">ทำไมต้องเลือกเรา</div>
+      <h2>มาตรฐานงานช่าง ที่ลูกค้าวางใจ</h2>
     </div>
-    <div class="stat-plates reveal">
-      <div class="stat-plate"><div class="num">15+</div><div class="lbl">ปีประสบการณ์</div></div>
-      <div class="stat-plate"><div class="num">1,200+</div><div class="lbl">งานที่ทำสำเร็จ</div></div>
-      <div class="stat-plate"><div class="num">80+</div><div class="lbl">โรงงานที่ไว้ใจเรา</div></div>
-      <div class="stat-plate"><div class="num">24 ชม.</div><div class="lbl">บริการงานด่วน</div></div>
+    <div class="why-grid">
+
+      <div class="why-item reveal">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 5.9L21 9l-4.6 4.4L17.6 21 12 17.8 6.4 21l1.2-7.6L3 9l6.4-1.1z"/></svg>
+        </div>
+        <h4>ประสบการณ์ 15+ ปี</h4>
+        <p>ผ่านงานมาแล้วหลากหลายรูปแบบ ทั้งงานเล็กและงานโรงงานขนาดใหญ่</p>
+      </div>
+
+      <div class="why-item reveal">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h4>งานได้มาตรฐาน</h4>
+        <p>ตรวจสอบคุณภาพทุกขั้นตอน เน้นความแข็งแรงและความปลอดภัยเป็นหลัก</p>
+      </div>
+
+      <div class="why-item reveal">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12.5l2 2 4.5-4.5"/></svg>
+        </div>
+        <h4>ราคาเป็นธรรม</h4>
+        <p>แจ้งราคาชัดเจนก่อนเริ่มงาน ไม่มีค่าใช้จ่ายแอบแฝง</p>
+      </div>
+
+      <div class="why-item reveal">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <h4>บริการรวดเร็ว</h4>
+        <p>ออกหน้างานได้ทันที พร้อมบริการฉุกเฉินนอกเวลาทำการ</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="hazard-bar thin"></div>
-  <div class="wrap contact-grid" style="margin-top:3.5rem;">
-    <div class="contact-info reveal">
-      <p class="eyebrow">ติดต่อเรา</p>
-      <h2>พร้อมรับงานของคุณ</h2>
-      <p>แจ้งรายละเอียดงานเบื้องต้น เช่น ประเภทเครื่องจักร หรือชิ้นงานที่ต้องการเชื่อม-กลึง ทีมงานจะติดต่อกลับเพื่อนัดดูหน้างานหรือเสนอราคา</p>
-      <ul class="contact-list">
-        <li>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
-          <div><div class="ctitle">โทรศัพท์</div><div class="cval">081-234-5678</div></div>
-        </li>
-        <li>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          <div><div class="ctitle">LINE ID</div><div class="cval">@changlee</div></div>
-        </li>
-        <li>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><div class="ctitle">ที่อยู่</div><div class="cval">123 หมู่ 4 ต.ตัวอย่าง อ.ตัวอย่าง จ.ตัวอย่าง 10000</div></div>
-        </li>
-        <li>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <div><div class="ctitle">เวลาทำการ</div><div class="cval">จันทร์ - เสาร์ 08:00 - 17:00 น.</div></div>
-        </li>
-      </ul>
+<!-- ============ PORTFOLIO ============ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">ผลงานที่ผ่านมา</div>
+      <h2>ตัวอย่างงานที่เราภูมิใจนำเสนอ</h2>
+      <p>รวมตัวอย่างผลงานเชื่อม กลึง และซ่อมเครื่องจักร ที่ส่งมอบให้ลูกค้าโรงงานและบ้านเรือนทั่วไป</p>
     </div>
-    <div class="contact-card reveal">
-      <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
-      <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
-      <h3>ติดต่อด่วน</h3>
-      <p>เลือกช่องทางที่สะดวก ทีมงานตอบกลับไว</p>
-      <a href="tel:0812345678" class="btn btn-primary">โทร 081-234-5678</a>
-      <a href="#" class="btn btn-outline">แชทผ่าน LINE</a>
+
+    <div class="portfolio-grid">
+
+      <div class="work-card reveal">
+        <div class="work-visual">
+          <span class="work-tag">งานเชื่อม</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>
+        </div>
+        <div class="work-body">
+          <h4>เชื่อมโครงสร้างหลังคาโรงงาน</h4>
+          <p>งานเชื่อมโครงเหล็กหลังคาโรงงานขนาด 800 ตร.ม. แล้วเสร็จภายใน 12 วัน</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-visual">
+          <span class="work-tag">ซ่อมเครื่องจักร</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a4 4 0 0 1-5.4 5.4L4 18.4 5.6 20l8.3-8.3a4 4 0 0 1 5.4-5.4l-1.6 1.6a1 1 0 0 0 0 1.4l1.3 1.3a1 1 0 0 0 1.4 0L22 9a4 4 0 0 1-5.66 5.66"/></svg>
+        </div>
+        <div class="work-body">
+          <h4>ซ่อมเครื่องจักรสายการผลิต</h4>
+          <p>วิเคราะห์และซ่อมแก้ไขเครื่องจักรสายการผลิตที่หยุดทำงานกะทันหัน คืนระบบภายใน 6 ชม.</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-visual">
+          <span class="work-tag">งานกลึง</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6"/></svg>
+        </div>
+        <div class="work-body">
+          <h4>กลึงเพลาเครื่องจักรอุตสาหกรรม</h4>
+          <p>กลึงเพลาขับชุดมอเตอร์ตามแบบ ความเที่ยงตรง ±0.02 มม. ส่งงานตรงเวลา</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-visual">
+          <span class="work-tag">งานเชื่อม</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg>
+        </div>
+        <div class="work-body">
+          <h4>เชื่อมประตูรั้วเหล็กดัด</h4>
+          <p>ออกแบบและเชื่อมประตูรั้วเหล็กดัดลายโมเดิร์น พ่นสีกันสนิมพร้อมติดตั้ง</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-visual">
+          <span class="work-tag">ซ่อมเครื่องจักร</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div class="work-body">
+          <h4>ซ่อมบำรุงเครื่องยนต์ดีเซล</h4>
+          <p>ถอดประกอบ ตรวจเช็คและซ่อมเครื่องยนต์ดีเซลอุตสาหกรรม พร้อมทดสอบเดินเครื่อง</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-visual">
+          <span class="work-tag">งานกลึง</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10H4z"/><path d="M8 7v10M16 7v10M4 12h16"/></svg>
+        </div>
+        <div class="work-body">
+          <h4>งานกลึงชิ้นส่วนตามแบบลูกค้า</h4>
+          <p>ผลิตชิ้นส่วนอะไหล่เฉพาะทางตามแบบ Drawing ที่ไม่มีขายในท้องตลาด</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<div class="weld-seam"></div>
+
+<!-- ============ QUOTE ============ -->
+<div class="quote-strip">
+  <div class="container">
+    <blockquote class="reveal">&ldquo;งานเชื่อมที่ดี ไม่ใช่แค่ติดกัน แต่ต้องแข็งแรงและอยู่ได้นาน&rdquo;</blockquote>
+    <div class="who">— พี่ลี, ผู้ก่อตั้ง พี่ลี เวลดิ้ง แอนด์ เซอร์วิส</div>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">ติดต่อเรา</div>
+      <h2>พร้อมให้คำปรึกษาและออกหน้างาน</h2>
+      <p>ติดต่อเราเพื่อขอใบเสนอราคา หรือสอบถามงานเชื่อม งานกลึง และงานซ่อมเครื่องจักร ทีมงานพร้อมตอบทุกคำถาม</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+
+        <div class="item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>โทรศัพท์</h4>
+            <a href="tel:0812345678">081-234-5678</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+          </div>
+          <div>
+            <h4>LINE / อีเมล</h4>
+            <p>LINE ID: @pleewelding<br><a href="mailto:contact@pleewelding.co.th">contact@pleewelding.co.th</a></p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>ที่อยู่ร้าน</h4>
+            <p>123 หมู่ 4 ถนนสายอุตสาหกรรม<br>ตำบลบางพลี อำเภอบางพลี<br>สมุทรปราการ 10540</p>
+          </div>
+        </div>
+
+        <div class="hours-table">
+          <div class="hours-row"><span>จันทร์ – เสาร์</span><span>08:00 – 18:00</span></div>
+          <div class="hours-row"><span>อาทิตย์</span><span>โทรนัดหมายล่วงหน้า</span></div>
+          <div class="hours-row"><span>บริการฉุกเฉิน</span><span>24 ชั่วโมง</span></div>
+        </div>
+      </div>
+
+      <form class="form-card reveal" id="contactForm">
+        <h3>ส่งข้อความถึงเรา</h3>
+        <p class="sub">กรอกรายละเอียดงาน ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</p>
+
+        <div class="field">
+          <label for="name">ชื่อ-นามสกุล</label>
+          <input type="text" id="name" name="name" placeholder="ชื่อของคุณ" required>
+        </div>
+        <div class="field">
+          <label for="phone">เบอร์โทรศัพท์</label>
+          <input type="tel" id="phone" name="phone" placeholder="08X-XXX-XXXX" required>
+        </div>
+        <div class="field">
+          <label for="message">รายละเอียดงาน</label>
+          <textarea id="message" name="message" rows="4" placeholder="อธิบายงานที่ต้องการ เช่น งานเชื่อม / งานกลึง / ซ่อมเครื่องจักร"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">ส่งข้อความ</button>
+        <p class="form-note">หรือโทรหาเราโดยตรงที่ 081-234-5678 เพื่อความรวดเร็ว</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="hazard-bar thin"></div>
-  <div class="footer-inner">
-    <a href="#home" class="logo">ช่างลี<span class="dot">.</span><span class="sub">Service</span></a>
-    <p class="footer-note">© 2026 ช่างลี เซอร์วิส · งานเชื่อม งานกลึง งานซ่อมเครื่องจักร</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:0;">
+          <span class="brand-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5-5"/><path d="M13 7l4-4 3 3-4 4"/><path d="M7 13l4 4"/><path d="M9.5 9.5l5 5"/><circle cx="18" cy="6" r="1.4" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span>
+            <span class="brand-name" style="display:block;">พี่ลี เวลดิ้ง</span>
+            <span class="brand-tag">Welding &amp; Service</span>
+          </span>
+        </div>
+        <p>งานเชื่อม งานกลึง และงานซ่อมเครื่องจักร ด้วยฝีมือช่างมาตรฐาน ประสบการณ์กว่า 15 ปี</p>
+      </div>
+      <div>
+        <h5>เมนูลัด</h5>
+        <ul>
+          <li><a href="#services">บริการ</a></li>
+          <li><a href="#portfolio">ผลงานที่ผ่านมา</a></li>
+          <li><a href="#why">ทำไมต้องเลือกเรา</a></li>
+          <li><a href="#contact">ติดต่อเรา</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ติดต่อด่วน</h5>
+        <ul>
+          <li><a href="tel:0812345678">081-234-5678</a></li>
+          <li><a href="mailto:contact@pleewelding.co.th">contact@pleewelding.co.th</a></li>
+          <li><a href="#">LINE: @pleewelding</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="year">© 2026 พี่ลี เวลดิ้ง แอนด์ เซอร์วิส. สงวนลิขสิทธิ์.</span>
+      <span>ออกแบบด้วยความตั้งใจ สำหรับงานช่างคุณภาพ</span>
+    </div>
   </div>
 </footer>
 
 <script>
-  // Mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const nav = document.getElementById('nav');
-  navToggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  // year
+  document.getElementById('year').textContent = '© ' + new Date().getFullYear() + ' พี่ลี เวลดิ้ง แอนด์ เซอร์วิส. สงวนลิขสิทธิ์.';
 
-  // Reveal on scroll
+  // mobile menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => io.observe(el));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // contact form -> mailto fallback (no backend)
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+    const subject = encodeURIComponent('ขอใบเสนอราคา - ' + name);
+    const body = encodeURIComponent('ชื่อ: ' + name + '\nเบอร์โทร: ' + phone + '\n\nรายละเอียดงาน:\n' + message);
+    window.location.href = 'mailto:contact@pleewelding.co.th?subject=' + subject + '&body=' + body;
+  });
 </script>
 
 </body>
