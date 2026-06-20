@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ช่างลี เซอร์วิส | งานเชื่อม งานกลึง งานซ่อมเครื่องจักร</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#15130F;
+    --charcoal:#211E1A;
+    --charcoal-2:#2A2620;
+    --steel:#4A453E;
+    --steel-light:#79705F;
+    --red:#D2231F;
+    --red-dark:#9E1A17;
+    --yellow:#FFC107;
+    --yellow-dark:#E0A800;
+    --cream:#F3EFE7;
+    --cream-dim:#C9C2B6;
+    --mono:'JetBrains Mono', monospace;
+    --display:'Kanit', sans-serif;
+    --body:'Noto Sans Thai','Kanit', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:var(--body);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  section{position:relative;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.15;letter-spacing:.01em;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--yellow);
+    display:flex;
+    align-items:center;
+    gap:.6em;
+    margin-bottom:1.1rem;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--red);display:inline-block;}
+  .eyebrow.center{justify-content:center;}
+  .eyebrow.center::before{display:none;}
+
+  /* ---------- Hazard stripe element (signature) ---------- */
+  .hazard-bar{
+    height:10px;
+    background:repeating-linear-gradient(135deg,var(--yellow) 0 18px,var(--black) 18px 36px);
+  }
+  .hazard-bar.thin{height:5px;background:repeating-linear-gradient(135deg,var(--yellow) 0 12px,var(--black) 12px 24px);}
+  .hazard-divider{
+    height:16px;
+    background:repeating-linear-gradient(135deg,var(--yellow) 0 22px,var(--black) 22px 44px);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:.95rem 1.8rem;
+    font-family:var(--display);font-weight:700;font-size:.98rem;
+    border-radius:3px;
+    border:2px solid transparent;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--red);color:var(--cream);}
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);}
+  .btn-outline{border-color:var(--yellow);color:var(--yellow);}
+  .btn-outline:hover{background:var(--yellow);color:var(--black);transform:translateY(-2px);}
+
+  /* ---------- Header ---------- */
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(21,19,15,.92);backdrop-filter:blur(6px);}
+  .header-inner{
+    max-width:1180px;margin:0 auto;padding:18px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  }
+  .logo{font-family:var(--display);font-weight:900;font-size:1.35rem;letter-spacing:.01em;display:flex;align-items:baseline;gap:.15em;}
+  .logo .dot{color:var(--red);}
+  .logo .sub{font-family:var(--mono);font-weight:500;font-size:.6rem;color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;margin-left:.5em;}
+  .nav{display:flex;gap:2rem;font-size:.95rem;font-weight:500;}
+  .nav a{position:relative;padding:.3rem 0;color:var(--cream-dim);transition:color .2s ease;}
+  .nav a:hover{color:var(--yellow);}
+  .nav-cta{
+    font-family:var(--display);font-weight:700;font-size:.9rem;
+    background:var(--red);color:var(--cream);padding:.65rem 1.3rem;border-radius:3px;
+    transition:background .2s ease;
+  }
+  .nav-cta:hover{background:var(--red-dark);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--steel);color:var(--cream);font-size:1.3rem;width:42px;height:42px;border-radius:3px;cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:5.5rem 0 4.5rem;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 10%, rgba(210,35,31,.20), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 5% 90%, rgba(255,193,7,.10), transparent 55%),
+      var(--black);
+    overflow:hidden;
+  }
+  .hero-glow{
+    position:absolute;top:0;right:-10%;width:55%;height:100%;
+    background:radial-gradient(circle, rgba(255,193,7,.18) 0%, transparent 65%);
+    animation:pulse-glow 7s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+  @keyframes pulse-glow{from{opacity:.5;transform:scale(1);}to{opacity:1;transform:scale(1.12);}}
+  @media (prefers-reduced-motion:reduce){.hero-glow{animation:none;}}
+
+  .hero-inner{position:relative;max-width:1180px;margin:0 auto;padding:0 28px;}
+  .hero h1{
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    color:var(--cream);
+    margin-bottom:1.4rem;
+    max-width:14ch;
+  }
+  .hero h1 .accent{color:var(--yellow);}
+  .hero h1 .accent2{color:var(--red);}
+  .hero-sub{
+    font-size:1.08rem;color:var(--cream-dim);max-width:46ch;margin-bottom:2.2rem;
+  }
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.2rem;}
+
+  .hero-stats{display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid var(--steel);padding-top:1.8rem;}
+  .stat-num{font-family:var(--mono);font-weight:600;font-size:1.5rem;color:var(--yellow);}
+  .stat-label{font-size:.85rem;color:var(--cream-dim);}
+
+  /* ---------- Section headers ---------- */
+  .section-head{text-align:center;max-width:640px;margin:0 auto 3.2rem;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--cream);}
+
+  /* ---------- Services ---------- */
+  .services{padding:5rem 0;background:var(--charcoal);}
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;}
+  .plate-card{
+    position:relative;background:var(--charcoal-2);border:1px solid var(--steel);
+    border-radius:4px;padding:2.4rem 2rem 2.2rem;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .plate-card:hover{transform:translateY(-6px);border-color:var(--yellow);}
+  .rivet{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--steel-light);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.06);}
+  .rivet-tl{top:12px;left:12px;}
+  .rivet-tr{top:12px;right:12px;}
+  .rivet-bl{bottom:12px;left:12px;}
+  .rivet-br{bottom:12px;right:12px;}
+  .plate-icon{
+    width:54px;height:54px;border-radius:3px;background:var(--black);
+    display:flex;align-items:center;justify-content:center;color:var(--yellow);
+    margin-bottom:1.5rem;border:1px solid var(--steel);
+  }
+  .plate-card:hover .plate-icon{color:var(--red);}
+  .plate-card h3{font-size:1.3rem;color:var(--cream);margin-bottom:.7rem;}
+  .plate-card p{color:var(--cream-dim);font-size:.96rem;}
+  .plate-tag{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--steel-light);
+    text-transform:uppercase;margin-bottom:.8rem;display:block;
+  }
+
+  /* ---------- About ---------- */
+  .about{padding:5.5rem 0;background:var(--black);}
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start;}
+  .about h2{font-size:clamp(1.8rem,3.2vw,2.3rem);color:var(--cream);margin-bottom:1.3rem;max-width:14ch;}
+  .about-text p.lead{color:var(--cream-dim);margin-bottom:1.8rem;}
+  .why-list li{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1rem;color:var(--cream-dim);font-size:.96rem;}
+  .why-list svg{flex:none;color:var(--yellow);margin-top:.2rem;}
+
+  .stat-plates{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .stat-plate{
+    position:relative;background:var(--charcoal);border:1px solid var(--steel);border-radius:4px;
+    padding:1.6rem 1.3rem;
+  }
+  .stat-plate .num{font-family:var(--mono);font-weight:600;font-size:1.9rem;color:var(--red);}
+  .stat-plate .lbl{font-size:.84rem;color:var(--cream-dim);margin-top:.3rem;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--charcoal);padding:5.5rem 0 4rem;}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;}
+  .contact h2{font-size:clamp(1.8rem,3.2vw,2.3rem);color:var(--cream);margin-bottom:1rem;max-width:16ch;}
+  .contact-info > p{color:var(--cream-dim);margin-bottom:1.8rem;max-width:42ch;}
+  .contact-list li{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.1rem;}
+  .contact-list svg{flex:none;color:var(--yellow);margin-top:.15rem;}
+  .contact-list .ctitle{font-size:.78rem;color:var(--steel-light);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;}
+  .contact-list .cval{color:var(--cream);font-weight:500;}
+
+  .contact-card{
+    background:var(--black);border:1px solid var(--steel);border-radius:4px;padding:2.4rem;
+    position:relative;
+  }
+  .contact-card h3{color:var(--cream);font-size:1.3rem;margin-bottom:.6rem;}
+  .contact-card p{color:var(--cream-dim);font-size:.92rem;margin-bottom:1.6rem;}
+  .contact-card .btn{width:100%;margin-bottom:.9rem;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--black);}
+  .footer-inner{
+    max-width:1180px;margin:0 auto;padding:2.2rem 28px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  }
+  .footer-inner .logo{font-size:1.05rem;}
+  .footer-note{font-size:.82rem;color:var(--steel-light);font-family:var(--mono);}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    .nav{position:fixed;top:74px;left:0;right:0;background:var(--charcoal);
+      flex-direction:column;padding:1.5rem 28px;gap:1.2rem;border-top:1px solid var(--steel);
+      transform:translateY(-150%);transition:transform .25s ease;}
+    .nav.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+    .about-grid,.contact-grid{grid-template-columns:1fr;}
+    .cards-grid{grid-template-columns:1fr;}
+    .stat-plates{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="logo">ช่างลี<span class="dot">.</span><span class="sub">Service</span></a>
+    <nav class="nav" id="nav">
+      <a href="#home">หน้าแรก</a>
+      <a href="#services">บริการ</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+    <a href="tel:0812345678" class="nav-cta">โทรเลย</a>
+    <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู">☰</button>
+  </div>
+  <div class="hazard-bar thin"></div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">ช่างลี เซอร์วิส · งานช่างอุตสาหกรรม</p>
+    <h1>ซ่อมได้ เชื่อมได้<br>กลึงได้ <span class="accent">จบที่เดียว</span></h1>
+    <p class="hero-sub">รับงานเชื่อมเหล็ก งานกลึงชิ้นส่วน และซ่อมเครื่องจักรโรงงาน โดยทีมช่างมีประสบการณ์ตรงกว่า 15 ปี งานเสร็จตรงเวลา แจ้งราคาก่อนเริ่มงานทุกครั้ง</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">ติดต่อสอบถามงาน</a>
+      <a href="#services" class="btn btn-outline">ดูบริการทั้งหมด</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">15+</div><div class="stat-label">ปีประสบการณ์</div></div>
+      <div><div class="stat-num">1,200+</div><div class="stat-label">งานที่เสร็จแล้ว</div></div>
+      <div><div class="stat-num">24 ชม.</div><div class="stat-label">รับงานด่วน</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-divider"></div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow center">บริการของเรา</p>
+      <h2>งานช่างที่เราถนัด</h2>
+    </div>
+    <div class="cards-grid">
+
+      <div class="plate-card reveal">
+        <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
+        <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
+        <div class="plate-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 3l4 4-9 9-5 1 1-5 9-9z"/><path d="M17 6l1 1"/><path d="M3 21l3-1"/>
+          </svg>
+        </div>
+        <span class="plate-tag">Welding</span>
+        <h3>งานเชื่อม</h3>
+        <p>เชื่อมเหล็ก เชื่อมสแตนเลส และเชื่อมโครงสร้าง ทั้งงานในโรงงานและออกหน้างาน ด้วยช่างเชื่อมที่ผ่านการทำงานจริงมาแล้วหลากหลายประเภทงาน</p>
+      </div>
+
+      <div class="plate-card reveal">
+        <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
+        <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
+        <div class="plate-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19.07 4.93l-2.12 2.12M7.05 16.95l-2.12 2.12M19.07 19.07l-2.12-2.12M7.05 7.05L4.93 4.93"/>
+          </svg>
+        </div>
+        <span class="plate-tag">Turning</span>
+        <h3>งานกลึง</h3>
+        <p>กลึงชิ้นส่วนเครื่องจักร แกนเพลา บูช และอะไหล่เฉพาะทาง ตามแบบหรือของตัวอย่าง เน้นความละเอียดและขนาดที่ตรงตามสเปก</p>
+      </div>
+
+      <div class="plate-card reveal">
+        <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
+        <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
+        <div class="plate-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span class="plate-tag">Repair</span>
+        <h3>งานซ่อมเครื่องจักร</h3>
+        <p>ตรวจเช็ค ซ่อม และบำรุงรักษาเชิงป้องกันสำหรับเครื่องจักรโรงงาน ระบบส่งกำลัง และระบบไฮดรอลิก ลดเวลาเครื่องจักรหยุดทำงาน</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text reveal">
+      <p class="eyebrow">เกี่ยวกับเรา</p>
+      <h2>ทีมช่างที่โรงงานในพื้นที่ไว้ใจ</h2>
+      <p class="lead">ช่างลี เซอร์วิส เริ่มต้นจากอู่เชื่อมเล็กๆ จนกลายเป็นทีมช่างที่รับงานเชื่อม งานกลึง และงานซ่อมเครื่องจักรให้กับโรงงานและร้านค้าในพื้นที่มากว่า 15 ปี เราเข้าใจดีว่าเครื่องจักรหยุดทำงานหนึ่งวันคือต้นทุนที่เสียไป จึงให้ความสำคัญกับความเร็วและความแม่นยำในทุกงานที่รับ</p>
+      <ul class="why-list">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ช่างมีประสบการณ์ตรง ลงมือทำเองทุกขั้นตอน</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>แจ้งราคาก่อนเริ่มงานทุกครั้ง ไม่มีบวกเพิ่มทีหลัง</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ใช้วัสดุและอะไหล่ได้มาตรฐาน รับประกันงาน</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>รับงานด่วน ออกหน้างานได้ไว ทั้งในและนอกพื้นที่</li>
+      </ul>
+    </div>
+    <div class="stat-plates reveal">
+      <div class="stat-plate"><div class="num">15+</div><div class="lbl">ปีประสบการณ์</div></div>
+      <div class="stat-plate"><div class="num">1,200+</div><div class="lbl">งานที่ทำสำเร็จ</div></div>
+      <div class="stat-plate"><div class="num">80+</div><div class="lbl">โรงงานที่ไว้ใจเรา</div></div>
+      <div class="stat-plate"><div class="num">24 ชม.</div><div class="lbl">บริการงานด่วน</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="hazard-bar thin"></div>
+  <div class="wrap contact-grid" style="margin-top:3.5rem;">
+    <div class="contact-info reveal">
+      <p class="eyebrow">ติดต่อเรา</p>
+      <h2>พร้อมรับงานของคุณ</h2>
+      <p>แจ้งรายละเอียดงานเบื้องต้น เช่น ประเภทเครื่องจักร หรือชิ้นงานที่ต้องการเชื่อม-กลึง ทีมงานจะติดต่อกลับเพื่อนัดดูหน้างานหรือเสนอราคา</p>
+      <ul class="contact-list">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+          <div><div class="ctitle">โทรศัพท์</div><div class="cval">081-234-5678</div></div>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <div><div class="ctitle">LINE ID</div><div class="cval">@changlee</div></div>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><div class="ctitle">ที่อยู่</div><div class="cval">123 หมู่ 4 ต.ตัวอย่าง อ.ตัวอย่าง จ.ตัวอย่าง 10000</div></div>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="ctitle">เวลาทำการ</div><div class="cval">จันทร์ - เสาร์ 08:00 - 17:00 น.</div></div>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-card reveal">
+      <span class="rivet rivet-tl"></span><span class="rivet rivet-tr"></span>
+      <span class="rivet rivet-bl"></span><span class="rivet rivet-br"></span>
+      <h3>ติดต่อด่วน</h3>
+      <p>เลือกช่องทางที่สะดวก ทีมงานตอบกลับไว</p>
+      <a href="tel:0812345678" class="btn btn-primary">โทร 081-234-5678</a>
+      <a href="#" class="btn btn-outline">แชทผ่าน LINE</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="hazard-bar thin"></div>
+  <div class="footer-inner">
+    <a href="#home" class="logo">ช่างลี<span class="dot">.</span><span class="sub">Service</span></a>
+    <p class="footer-note">© 2026 ช่างลี เซอร์วิส · งานเชื่อม งานกลึง งานซ่อมเครื่องจักร</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
