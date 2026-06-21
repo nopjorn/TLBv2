@@ -87,7 +87,7 @@ function initContactForm() {
     const body = encodeURIComponent(
       'ชื่อ: ' + name + '\nเบอร์โทร: ' + phone + '\n\nรายละเอียดงาน:\n' + message
     );
-    window.location.href = 'mailto:contact@tlbservice.co.th?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:tlbservice2525@gmail.com?subject=' + subject + '&body=' + body;
   });
 }
 
